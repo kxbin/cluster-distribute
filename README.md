@@ -23,13 +23,13 @@ distribute cluster bash or file，集群bash命令或文件分发
 yaml中以及-f指定的分发文件路径必须是绝对路径
 
 
-``distb -b 'echo a' -h 'host1,host2'``
+``distb -b 'echo a' -h 'host1,host2' # 分发 echo a命令到host1和host2``
 
 
-``distb -f '/root/a.txt' -h 'host1,host2'``
+``distb -f '/root/a.txt' -h 'host1,host2' # 分发/root/a.txt文件到host1和host2``
 
 
-``distb -y example.yaml``
+``distb -y example.yaml # 根据yaml配置文件决定如何分发``
 
 # yaml
 ```
