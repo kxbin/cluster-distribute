@@ -19,5 +19,9 @@ distribute cluster bash or file，集群bash命令或文件分发
 
 # example
 ``distb -b 'echo a' -h 'host1,host2'``
+
+
 ``distb -f '/root/a.txt' -h 'host1,host2'``
+
+
 ``distb -y example.yaml``
