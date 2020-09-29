@@ -18,7 +18,7 @@ distribute cluster bash or file，集群 bash 命令或文件分发
 
 
 # example
-前提：python3 环境， link 只用执行一次，并且指定的这些 hosts 能够相互之间免密 ssh 登录
+前提：python3 环境，所有的 hosts 需要 yum -y install rsync， link 只用执行一次，并且指定的这些 hosts 能够相互之间免密 ssh 登录
 
 yaml 中以及 -f 指定的分发文件路径必须是绝对路径
 
