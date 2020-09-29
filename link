@@ -1,6 +1,5 @@
 #!/bin/bash
 
-yum -y install rsync
 pip3 install pyyaml
 
 pyname=main.py
