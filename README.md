@@ -32,7 +32,11 @@ yaml中以及-f指定的分发文件路径必须是绝对路径
 ``distb -y example.yaml``
 
 # yaml
-``
+```
+$符号必须加\\转义 
+host:分发的主机名 file:分发的文件或目录 bash:分发的shell命令 once:只执行一次的代码块 需要-once参数开启
+yaml格式如下:
+
 host:
     - "m01"
     - "m02"
@@ -45,4 +49,4 @@ once:
         - "/root/b.txt"
     bash:
         - "echo b"
-``
+```
