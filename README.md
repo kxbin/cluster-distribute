@@ -20,7 +20,7 @@ distribute cluster bash or file，集群bash命令或文件分发
 # example
 前提：python3环境， pip3 install pyyaml，yum install rsync，并且指定的这些hosts能够相互之间免密ssh登录
 
-yaml中以及-f指定的分发的文件路径必须是绝对路径
+yaml中以及-f指定的分发文件路径必须是绝对路径
 
 
 ``distb -b 'echo a' -h 'host1,host2'``
