@@ -1,27 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# -y 参数可以是一个yaml文件或者目录，如果是目录会遍历分别执行
-
-'''
-$符号必须加\\转义 
-host:分发的主机名 file:分发的文件或目录 bash:分发的shell命令 once:只执行一次的代码块 需要-once参数开启
-yaml格式如下:
-
-host:
-    - "m01"
-    - "m02"
-file:
-    - "/root/a.txt"
-bash:
-    - "echo a"
-once:
-    file:
-        - "/root/b.txt"
-    bash:
-        - "echo b"
-'''
-
 import os,sys,subprocess,json,socket,argparse,yaml
 
 os.chdir(os.path.split(os.path.realpath(__file__))[0])
@@ -57,10 +36,10 @@ def distribute(yamlfile, once=False):
 		if len(meta['host']) != 0:
 			for host in meta['host']:
 				if once == True:
-					distribute_file(meta['once']['file'], host)
 					distribute_bash(meta['once']['bash'], host)
-				distribute_file(meta['file'], host)
+					distribute_file(meta['once']['file'], host)
 				distribute_bash(meta['bash'], host)
+				distribute_file(meta['file'], host)
 
 parser = argparse.ArgumentParser(
     description="Distribute, cluster file or bash distribute",
