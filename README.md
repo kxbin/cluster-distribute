@@ -18,7 +18,7 @@ distribute cluster bash or file，集群bash命令或文件分发
 
 
 # example
-前提：python3环境， pip3 install pyyaml，yum isntll rsync，并且指定的这些hosts能够相互之间免密ssh登录
+前提：python3环境， pip3 install pyyaml，yum install rsync，并且指定的这些hosts能够相互之间免密ssh登录
 
 
 ``distb -b 'echo a' -h 'host1,host2'``
