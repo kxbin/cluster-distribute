@@ -1,0 +1,15 @@
+#!/bin/bash
+
+pcount=$#
+
+if((pcount<2));then
+	echo args invalid;
+	exit;
+fi
+
+# 在哪个主机执行
+host=$1
+shift 1
+
+echo -e "\e[31m It will execute [$@] in $host \e[0m"
+ssh $host $@

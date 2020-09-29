@@ -1,0 +1,11 @@
+#!/bin/bash
+pyname=main.py
+name=distb
+fname=$(basename $pyname)
+# 获取上级目录到绝对路径
+pdir=$(cd -P $(dirname $pyname); pwd)
+
+echo "#!/bin/bash" > $pdir/$name
+echo "python3 $pdir/$pyname \"\$@\"" >> $pdir/$name
+chmod 755 $pdir/$name
+ln -s $pdir/$name /usr/bin/distb

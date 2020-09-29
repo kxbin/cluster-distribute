@@ -1,0 +1,12 @@
+host:
+    - "m01"
+    - "m02"
+file:
+    - "/root/a.txt"
+bash:
+    - "echo a"
+once:
+    file:
+        - "/root/b.txt"
+    bash:
+        - "echo b"

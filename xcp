@@ -1,0 +1,21 @@
+#!/bin/bash
+
+pcount=$#
+
+if((pcount<2));then
+	echo args invalid;
+	exit;
+fi
+
+# 复制到哪个主机
+host=$1
+# 获取文件名称
+p1=$2
+fname=$(basename $p1)
+# 获取上级目录到绝对路径
+pdir=$(cd -P $(dirname $p1); pwd)
+# 获取当前用户名称
+user=$(whoami)
+
+echo -e "\e[33m It will rsync [$pdir/$fname] to [$user@$host:$pdir] \e[0m"
+rsync -avzu --progress $pdir/$fname $user@$host:$pdir
