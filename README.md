@@ -30,3 +30,19 @@ yaml中以及-f指定的分发文件路径必须是绝对路径
 
 
 ``distb -y example.yaml``
+
+# yaml
+``
+host:
+    - "m01"
+    - "m02"
+file:
+    - "/root/a.txt"
+bash:
+    - "echo a"
+once:
+    file:
+        - "/root/b.txt"
+    bash:
+        - "echo b"
+``
