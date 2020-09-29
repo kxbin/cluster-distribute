@@ -92,12 +92,8 @@ args = parser.parse_args()
 hosts = args.hosts
 with open('hosts.yaml', 'r') as f:
 	temp = yaml.load(f.read(), Loader=yaml.FullLoader)
-	if hosts == 'all':
-		hosts = temp['all']
-	elif hosts == 'master':
-		hosts = temp['master']
-	elif hosts == 'slave':
-		hosts = temp['slave']
+	if hosts in temp.keys():
+		hosts = temp['hosts']
 
 if args.yaml is not None:
 	if os.path.isdir(args.yaml):
