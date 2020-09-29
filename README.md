@@ -44,18 +44,18 @@ distb -y example.yaml
 ```
 $符号必须加\\转义 
 host: 分发的主机名 file: 分发的文件或目录 bash: 分发的 shell 命令 once: 只执行一次的代码块 需要 -once 参数开启
-yaml 格式如下:
+yaml 格式如下，distb 会先执行 bash 再执行 file:
 
 host:
     - "m01"
     - "m02"
-file:
-    - "/root/a.txt"
 bash:
     - "echo a"
+file:
+    - "/root/a.txt"
 once:
-    file:
-        - "/root/b.txt"
     bash:
         - "echo b"
+    file:
+        - "/root/b.txt"
 ```
