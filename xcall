@@ -1,6 +1,7 @@
 #!/bin/bash
 
 pcount=$#
+port=22
 
 if((pcount<2));then
 	echo args invalid;
@@ -12,4 +13,4 @@ host=$1
 shift 1
 
 echo -e "\e[31m It will execute [$@] in $host \e[0m"
-ssh $host $@
+ssh -p $port $host $@
