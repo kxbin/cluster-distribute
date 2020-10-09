@@ -1,6 +1,7 @@
 #!/bin/bash
 
 pcount=$#
+port=22
 
 if((pcount<2));then
 	echo args invalid;
@@ -18,4 +19,4 @@ pdir=$(cd -P $(dirname $p1); pwd)
 user=$(whoami)
 
 echo -e "\e[33m It will rsync [$pdir/$fname] to [$user@$host:$pdir] \e[0m"
-rsync -avzu --progress $pdir/$fname $user@$host:$pdir
+rsync -avzu -e "ssh -p $port" --progress $pdir/$fname $user@$host:$pdir
