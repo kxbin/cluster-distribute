@@ -3,7 +3,7 @@
 
 import os,sys,subprocess,json,socket,argparse,yaml
 
-os.chdir(os.path.split(os.path.realpath(__file__))[0])
+distb_path = os.path.split(os.path.realpath(__file__))[0]
 localhost = socket.gethostname()
 
 def run_shell(shell):
@@ -23,12 +23,12 @@ def run_shell(shell):
 def distribute_file(files, host):
 	if files is not None and len(files) != 0 and host != localhost: # 文件不分发给本机
 		for file in files:
-			print(run_shell('./xcp {} {}'.format(host, file)))
+			print(run_shell(distb_path + '/xcp {} {}'.format(host, file)))
 
 def distribute_bash(bashs, host):
 	if bashs is not None and len(bashs) != 0:
 		for bash in bashs:
-			print(run_shell('./xcall {} "{}"'.format(host, bash)))
+			print(run_shell(distb_path + '/xcall {} "{}"'.format(host, bash)))
 
 def distribute(yamlfile, once=False):
 	with open(yamlfile, 'r') as f:
@@ -69,7 +69,7 @@ if len(sys.argv) <= 1:
 args = parser.parse_args()
 
 hosts = args.hosts
-with open('hosts.yaml', 'r') as f:
+with open(distb_path + '/hosts.yaml', 'r') as f:
 	temp = yaml.load(f.read(), Loader=yaml.FullLoader)
 	if hosts in temp.keys():
 		hosts = temp[hosts]
@@ -87,10 +87,10 @@ elif args.file is not None and args.hosts is not None:
 	hosts = hosts.split(',')
 	for host in hosts:
 		if host != localhost:
-			print(run_shell('./xcp {} {}'.format(host, args.file)))
+			print(run_shell(distb_path + '/xcp {} {}'.format(host, args.file)))
 elif args.bash is not None and args.hosts is not None:
 	hosts = hosts.split(',')
 	for host in hosts:
-		print(run_shell('./xcall {} "{}"'.format(host, args.bash)))
+		print(run_shell(distb_path + '/xcall {} "{}"'.format(host, args.bash)))
 else:
 	print('params is invalid')
