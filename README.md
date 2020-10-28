@@ -8,7 +8,7 @@ distribute cluster bash or file，集群 bash 命令或文件分发
 2. ``cd cluster-distribute``
 
 
-3. ``chmode 755 ./*``
+3. ``chmod 755 ./*``
 
 
 4. ``./link``
